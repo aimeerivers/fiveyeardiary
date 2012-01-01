@@ -13,8 +13,11 @@
           %li= msg
 
   .field
+    - date = @note.date
+    - date = Date.parse(params[:date]) if params[:date]
+
     = f.label :date
-    = f.text_field :date, value: @note.date || Date.today.to_s
+    = f.text_field :date, value: date || DateTime.current.strftime('%Y-%m-%d')
 
   .field
     = f.label :content, 'Write whatever is on your mind:'
