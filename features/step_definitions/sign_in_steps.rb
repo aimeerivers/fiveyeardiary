@@ -8,3 +8,7 @@ end
 Then /^"([^"]*)" should be signed in$/ do |name|
   page.should have_content "Hello #{name}"
 end
+
+Then /^I should not be able to sign in$/ do
+  page.should have_content "Authentication failed"
+end

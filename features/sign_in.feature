@@ -9,3 +9,11 @@ Feature: Sign in
     Given a user called "Alice"
     When I sign in as "Alice"
     Then "Alice" should be signed in
+
+  Scenario: Unsuccessful sign in
+
+    Cannot sign in with invalid credentials
+
+    Given no users have signed up
+    When I sign in as "Bertha"
+    Then I should not be able to sign in

@@ -7,6 +7,7 @@ Fiveyearcalendar::Application.routes.draw do
   # Keep in mind you can assign values other than :controller and :action
 
   match "/auth/:provider/callback" => "sessions#create"
+  match "/auth/failure" => "sessions#failure"
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
