@@ -8,6 +8,9 @@
     = csrf_meta_tags
 
   %body
+    - if user_signed_in?
+      = link_to 'Sign out', sign_out_path
+
     - flash.each do |type, message|
       %div(class=type)= message
 

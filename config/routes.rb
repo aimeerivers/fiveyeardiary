@@ -15,6 +15,7 @@ Fiveyearcalendar::Application.routes.draw do
 
   match '/signup' => 'identities#new', as: :sign_up
   match '/signin' => 'sessions#new', as: :sign_in
+  match '/signout' => 'sessions#destroy', as: :sign_out
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

@@ -6,3 +6,8 @@ end
 Given /^no users have signed up$/ do
   User.count.should == 0
 end
+
+Given /^I am signed in as "([^"]*)"$/ do |name|
+  step %{a user called "#{name}"}
+  step %{I sign in as "#{name}"}
+end
