@@ -8,12 +8,7 @@
     = csrf_meta_tags
 
   %body
-    - if user_signed_in?
-      = link_to 'Sign out', sign_out_path
-    - else
-      = link_to 'Sign up', sign_up_path
-      or
-      = link_to 'Sign in', sign_in_path
+    = render :partial => 'shared/authentication'
 
     - flash.each do |type, message|
       %div(class=type)= message
