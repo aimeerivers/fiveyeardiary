@@ -4,4 +4,12 @@ body {
 
 .container-fluid {
   min-width: 100px;
+
+  > .content {
+    margin-left: 0;
+  }
+}
+
+footer p {
+  text-align: center;
 }

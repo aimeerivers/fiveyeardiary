@@ -16,10 +16,19 @@
     = render partial: 'shared/navigation'
 
     .container-fluid
-      - flash.each do |type, message|
-        %div(class=type)= message
+      .content
+        .page-header
+          - if content_for?(:title)
+            %h1= yield(:title)
 
-      - if content_for?(:title)
-        %h2= yield(:title)
+        - flash.each do |type, message|
+          %div(class=type)= message
 
-      = yield
+
+        = yield
+
+    %footer
+      %p
+        What would you like to see? Contact me
+        = link_to '@sermoa', 'http://twitter.com/sermoa'
+        with your ideas.
