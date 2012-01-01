@@ -1,30 +1,11 @@
 - title "Add a note"
 
-= form_for @note do |f|
+= simple_form_for @note do |f|
 
-  - if @note && @note.errors.any?
-    .error_messages
-      %h2
-        = pluralize(@note.errors.count, "error")
-        prohibited this note from being saved:
+  - date = @note.date
+  - date = Date.parse(params[:date]) if params[:date]
+  = f.input :date, as: :string, input_html: {value: date || DateTime.current.strftime('%Y-%m-%d')}
 
-      %ul
-        - @note.errors.full_messages.each do |msg|
-          %li= msg
+  = f.input :content, label: 'Write whatever is on your mind:', input_html: {class: 'xxlarge'}
 
-  .field
-    - date = @note.date
-    - date = Date.parse(params[:date]) if params[:date]
-
-    = f.label :date
-    = f.text_field :date, value: date || DateTime.current.strftime('%Y-%m-%d')
-
-  %br
-
-  .field
-    = f.label :content, 'Write whatever is on your mind:'
-    %br
-    = f.text_area :content
-
-  .actions
-    = f.submit "Save note"
+  = f.button :submit, 'Save note'
