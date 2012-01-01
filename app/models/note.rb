@@ -4,7 +4,7 @@ class Note < ActiveRecord::Base
 
   validates :content, presence: true
   validates :date, presence: true, date: {before: Proc.new { DateTime.current }, message: "cannot be in the future"}
-  validates :date, uniqueness: {scope: [:user_id], :message => "- You have already made a note for this day"}
+  validates :date, uniqueness: {scope: [:user_id], :message => "You have already made a note for this day"}
 
   scope :for_day, lambda {|month, day| where(month: month, day: day) }
   scope :by_date, order(:date)
