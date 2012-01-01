@@ -22,3 +22,7 @@ end
 Then /^I should be told that I cannot log a note in the future$/ do
   page.should have_content "Date cannot be in the future"
 end
+
+Then /^I should be told that I cannot log two notes for the same day$/ do
+  page.should have_content "You have already made a note for this day"
+end

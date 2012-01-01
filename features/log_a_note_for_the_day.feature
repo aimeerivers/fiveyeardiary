@@ -48,3 +48,18 @@ Feature: Log a note for the day
       I predict that i will be eaten by a Grim
       """
     Then I should be told that I cannot log a note in the future
+
+  Scenario: User cannot log a second note for the same day
+
+    There should be only one note per day.
+
+    Given I am signed in as "Dean"
+    When I log a note for today with the following:
+      """
+      First note
+      """
+    And I try to log a note for today with the following:
+      """
+      Second note
+      """
+    Then I should be told that I cannot log two notes for the same day
