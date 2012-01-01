@@ -17,7 +17,7 @@
     = f.text_field :date, value: @note.date || Date.today.to_s
 
   .field
-    = f.label :content
+    = f.label :content, 'Write whatever is on your mind:'
     %br
     = f.text_area :content
 

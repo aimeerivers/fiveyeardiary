@@ -2,7 +2,7 @@ When /^I (?:try to )?log a note for (yesterday|today|tomorrow) with the followin
   @note_content = content
   visit new_note_path
   fill_in "Date", with: Date.send(day).to_s
-  fill_in "Content", with: @note_content
+  fill_in "note_content", with: @note_content
   click_button "Save note"
 end
 
