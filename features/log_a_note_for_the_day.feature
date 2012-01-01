@@ -25,3 +25,15 @@ Feature: Log a note for the day
     Then I should see that I must be signed in
     When I try to view the calendar for today
     Then I should see that I must be signed in
+
+  Scenario: User can log a note for a previous day
+
+    You can 'catch up' on previous days
+
+    Given I am signed in as "Dean"
+    When I log a note for yesterday with the following:
+      """
+      I arrived at Hogwarts!
+      """
+    And I view the calendar for yesterday
+    Then I should see the note
