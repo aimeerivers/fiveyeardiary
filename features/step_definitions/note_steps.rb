@@ -20,7 +20,7 @@ Then /^I should see the note$/ do
 end
 
 Then /^I should be told that I cannot log a note in the future$/ do
-  page.should have_content "Date cannot be in the future"
+  page.should have_content "cannot be in the future"
 end
 
 Then /^I should be told that I cannot log two notes for the same day$/ do
