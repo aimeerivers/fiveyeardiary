@@ -10,6 +10,16 @@ When /^I sign up with valid details$/ do
   click_button "Sign up"
 end
 
+When /^I sign up with an invalid password$/ do
+  fill_in "Password", with: 'test'
+  fill_in "Confirm Password", with: 'test'
+  click_button "Sign up"
+end
+
 Then /^I should be welcomed to the site$/ do
   page.should have_content "Hello Alice"
+end
+
+Then /^I should be notified that the password is invalid$/ do
+  page.should have_content "Password is too short"
 end
