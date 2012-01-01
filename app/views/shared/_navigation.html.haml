@@ -15,13 +15,4 @@
             = link_to 'Add a note', new_note_path
 
       .pull-right
-        %ul.nav
-          - if user_signed_in?
-            %li
-              = link_to 'Sign out', sign_out_path
-
-          - else
-            %li
-              = link_to 'Sign up', sign_up_path
-            %li
-              = link_to 'Sign in', sign_in_path
+        = render partial: 'shared/authentication'
