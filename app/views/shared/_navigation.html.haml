@@ -1,0 +1,11 @@
+.topbar
+  %ul.nav
+    %li
+      = link_to 'Home', root_url
+
+    - if user_signed_in?
+      %li
+        - date = DateTime.current
+        = link_to 'Today', daily_diary_path(date.month, date.day)
+      %li
+        = link_to 'Add a note', new_note_path

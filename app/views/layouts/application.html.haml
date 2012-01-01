@@ -13,6 +13,7 @@
 
   %body
     = render partial: 'shared/authentication'
+    = render partial: 'shared/navigation'
 
     - flash.each do |type, message|
       %div(class=type)= message
