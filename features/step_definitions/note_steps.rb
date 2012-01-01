@@ -1,4 +1,4 @@
-When /^I log a note for (yesterday|today) with the following:$/ do |day, content|
+When /^I (?:try to )?log a note for (yesterday|today|tomorrow) with the following:$/ do |day, content|
   @note_content = content
   visit new_note_path
   fill_in "Date", with: Date.send(day).to_s
@@ -17,4 +17,8 @@ end
 
 Then /^I should see the note$/ do
   page.should have_content @note_content
+end
+
+Then /^I should be told that I cannot log a note in the future$/ do
+  page.should have_content "Date cannot be in the future"
 end

@@ -37,3 +37,14 @@ Feature: Log a note for the day
       """
     And I view the calendar for yesterday
     Then I should see the note
+
+  Scenario: User cannot log a note for tomorrow
+
+    Notes cannot be added in advance.
+
+    Given I am signed in as "Dean"
+    When I try to log a note for tomorrow with the following:
+      """
+      I predict that i will be eaten by a Grim
+      """
+    Then I should be told that I cannot log a note in the future

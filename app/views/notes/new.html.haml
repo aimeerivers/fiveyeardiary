@@ -1,9 +1,20 @@
 - title "Add a note"
 
 = form_for @note do |f|
+
+  - if @note && @note.errors.any?
+    .error_messages
+      %h2
+        = pluralize(@note.errors.count, "error")
+        prohibited this note from being saved:
+
+      %ul
+        - @note.errors.full_messages.each do |msg|
+          %li= msg
+
   .field
     = f.label :date
-    = f.text_field :date, value: Date.today.to_s
+    = f.text_field :date, value: @note.date || Date.today.to_s
 
   .field
     = f.label :content
