@@ -63,3 +63,21 @@ Feature: Log a note for the day
       Second note
       """
     Then I should be told that I cannot log two notes for the same day
+
+  Scenario: Daily notes are unique per user
+
+    Although Dean has made a note for today, Ernie has not.
+
+    Given I am signed in as "Dean"
+    When I log a note for today with the following:
+      """
+      Dean's note
+      """
+
+    When I am signed in as "Ernie"
+    And I log a note for today with the following:
+      """
+      Ernie's note
+      """
+    And I view the diary for today
+    Then I should see the note
