@@ -1,4 +1,4 @@
-Fiveyearcalendar::Application.routes.draw do
+Fiveyeardiary::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -17,7 +17,7 @@ Fiveyearcalendar::Application.routes.draw do
   match '/signin' => 'sessions#new', as: :sign_in
   match '/signout' => 'sessions#destroy', as: :sign_out
 
-  match "/calendar/:month/:day" => 'notes#day', as: :daily_calendar
+  match "/diary/:month/:day" => 'notes#day', as: :daily_diary
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

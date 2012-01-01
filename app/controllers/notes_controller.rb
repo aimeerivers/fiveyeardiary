@@ -11,7 +11,7 @@ class NotesController < ApplicationController
     @note.user = current_user
     if @note.save
       date = @note.date
-      redirect_to daily_calendar_url(date.month, date.day), notice: 'Note saved successfully'
+      redirect_to daily_diary_url(date.month, date.day), notice: 'Note saved successfully'
     else
       render :new
     end

@@ -10,9 +10,9 @@ When /^I try to log a note$/ do
   visit new_note_path
 end
 
-When /^I (?:try to )?view the calendar for (yesterday|today)/ do |day|
+When /^I (?:try to )?view the diary for (yesterday|today)/ do |day|
   date = Date.send(day)
-  visit daily_calendar_path(date.month, date.day)
+  visit daily_diary_path(date.month, date.day)
 end
 
 Then /^I should see the note$/ do

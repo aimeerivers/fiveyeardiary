@@ -15,9 +15,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: fiveyearcalendar_development
+  database: fiveyeardiary_development
   pool: 5
-  username: fiveyearcalendar
+  username: fiveyeardiary
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -41,17 +41,17 @@ development:
 test: &test
   adapter: postgresql
   encoding: unicode
-  database: fiveyearcalendar_test
+  database: fiveyeardiary_test
   pool: 5
-  username: fiveyearcalendar
+  username: fiveyeardiary
   password:
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: fiveyearcalendar_production
+  database: fiveyeardiary_production
   pool: 5
-  username: fiveyearcalendar
+  username: fiveyeardiary
   password:
 
 cucumber:

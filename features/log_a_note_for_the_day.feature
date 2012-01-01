@@ -13,7 +13,7 @@ Feature: Log a note for the day
       """
       Today i put a West Ham picture on the wall.
       """
-    And I view the calendar for today
+    And I view the diary for today
     Then I should see the note
 
   Scenario: User must be signed in to log and view notes
@@ -23,7 +23,7 @@ Feature: Log a note for the day
     Given I am not signed in
     When I try to log a note
     Then I should see that I must be signed in
-    When I try to view the calendar for today
+    When I try to view the diary for today
     Then I should see that I must be signed in
 
   Scenario: User can log a note for a previous day
@@ -35,7 +35,7 @@ Feature: Log a note for the day
       """
       I arrived at Hogwarts!
       """
-    And I view the calendar for yesterday
+    And I view the diary for yesterday
     Then I should see the note
 
   Scenario: User cannot log a note for tomorrow
