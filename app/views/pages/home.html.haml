@@ -1,3 +1,19 @@
+- title "Welcome!"
+
 %p
   Hello
   = current_user.try(:name)
+
+%p This will be your personal five year diary where you can write your thoughts every day of the year.
+
+%p As the years go by you will be able to see at a glance how you were feeling on the same day on previous years.
+
+%p Everything you write is private: this is not a blog. It's a chance for you to express your personal feelings in as many or as few words as you like.
+
+%p
+  If you're ready to begin, please
+  - if user_signed_in?
+    = link_to "write today's note", new_note_path
+
+  - else
+    = link_to 'sign up', sign_up_path
