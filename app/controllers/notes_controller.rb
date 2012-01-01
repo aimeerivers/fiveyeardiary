@@ -1,5 +1,7 @@
 class NotesController < ApplicationController
 
+  before_filter :authenticate
+
   def new
     @note = Note.new
   end

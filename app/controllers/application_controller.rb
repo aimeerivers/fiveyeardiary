@@ -3,6 +3,14 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :user_signed_in?
 
+  protected
+
+  def authenticate
+    if !user_signed_in?
+      redirect_to sign_in_url, alert: "Please sign in first"
+    end
+  end
+
   private
 
   def current_user

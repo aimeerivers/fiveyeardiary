@@ -2,6 +2,12 @@ Given /^I have chosen to sign up$/ do
   visit sign_up_path
 end
 
+Given /^I am not signed in$/ do
+  visit root_path
+  page.should have_no_css('a', text: 'Sign out')
+  page.should have_css('a', text: 'Sign in')
+end
+
 When /^I sign up with valid details$/ do
   fill_in "Name", with: "Alice"
   fill_in "Email", with: "alice@test.com"
@@ -45,4 +51,8 @@ end
 
 Then /^I should be notified that the password is invalid$/ do
   page.should have_content "Password is too short"
+end
+
+Then /^I should see that I must be signed in$/ do
+  page.should have_content "Please sign in first"
 end

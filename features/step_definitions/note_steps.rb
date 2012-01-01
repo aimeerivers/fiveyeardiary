@@ -5,7 +5,11 @@ When /^I log a note for today with the following:$/ do |content|
   click_button "Save note"
 end
 
-When /^I view the calendar for today$/ do
+When /^I try to log a note$/ do
+  visit new_note_path
+end
+
+When /^I (?:try to )?view the calendar for today$/ do
   date = Date.today
   visit daily_calendar_path(date.month, date.day)
 end
