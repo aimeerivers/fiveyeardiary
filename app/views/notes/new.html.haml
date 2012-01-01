@@ -19,6 +19,8 @@
     = f.label :date
     = f.text_field :date, value: date || DateTime.current.strftime('%Y-%m-%d')
 
+  %br
+
   .field
     = f.label :content, 'Write whatever is on your mind:'
     %br
