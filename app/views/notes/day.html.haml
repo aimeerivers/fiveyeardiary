@@ -1,0 +1,6 @@
+- title "#{@date.strftime('%B %e')}"
+
+- @notes.each do |note|
+  .note
+    %h3= note.date.year
+    = simple_format note.content

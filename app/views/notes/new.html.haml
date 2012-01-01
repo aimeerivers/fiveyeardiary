@@ -1,0 +1,13 @@
+- title "Add a note"
+
+= form_for @note do |f|
+  .field
+    = f.label :date
+    = f.text_field :date, value: Date.today.to_s
+
+  .field
+    = f.label :content
+    = f.text_area :content
+
+  .actions
+    = f.submit "Save note"

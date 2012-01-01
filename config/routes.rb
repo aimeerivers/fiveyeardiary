@@ -17,8 +17,12 @@ Fiveyearcalendar::Application.routes.draw do
   match '/signin' => 'sessions#new', as: :sign_in
   match '/signout' => 'sessions#destroy', as: :sign_out
 
+  match "/calendar/:month/:day" => 'notes#day', as: :daily_calendar
+
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+
+  resources :notes
 
   # Sample resource route with options:
   #   resources :products do
