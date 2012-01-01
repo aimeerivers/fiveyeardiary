@@ -1,30 +1,10 @@
-= form_tag "/auth/identity/register" do
+- title 'Sign up'
 
-  - if @identity && @identity.errors.any?
-    .error_messages
-      %h2
-        = pluralize(@identity.errors.count, "error")
-        prohibited this account from being saved:
-
-      %ul
-        - @identity.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = label_tag :name
-    = text_field_tag :name, @identity.try(:name)
-
-  .field
-    = label_tag :email
-    = text_field_tag :email, @identity.try(:email)
-
-  .field
-    = label_tag :password
-    = password_field_tag :password
-
-  .field
-    = label_tag :password_confirmation, "Confirm Password"
-    = password_field_tag :password_confirmation
+= simple_form_for @identity, url: '/auth/identity/register' do |f|
+  = f.input :name, input_html: {name: 'name'}
+  = f.input :email, input_html: {name: 'email'}
+  = f.input :password, input_html: {name: 'password'}
+  = f.input :password_confirmation, label: 'Confirm Password', input_html: {name: 'password_confirmation'}
 
   .actions
-    = submit_tag "Sign up"
+    = f.button :submit, 'Sign up', class: 'primary'
