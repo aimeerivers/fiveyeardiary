@@ -19,7 +19,7 @@ class NotesController < ApplicationController
 
   def day
     @date = DateTime.current.change(month: params[:month].to_i, day: params[:day].to_i)
-    @notes = current_user.notes.all(order: :date)
+    @notes = current_user.notes.for_day(@date.month, @date.day).by_date
   end
 
 end
