@@ -1,12 +1,27 @@
 .topbar
-  .container-fluid
-    %ul.nav
-      %li
-        = link_to 'Home', root_url
+  .fill
+    .container-fluid
+      = link_to 'Five Year Diary', root_path, class: 'brand'
 
-      - if user_signed_in?
+      %ul.nav
         %li
-          - date = DateTime.current
-          = link_to 'Today', daily_diary_path(date.month, date.day)
-        %li
-          = link_to 'Add a note', new_note_path
+          = link_to 'Home', root_path
+
+        - if user_signed_in?
+          %li
+            - date = DateTime.current
+            = link_to 'Today', daily_diary_path(date.month, date.day)
+          %li
+            = link_to 'Add a note', new_note_path
+
+      .pull-right
+        %ul.nav
+          - if user_signed_in?
+            %li
+              = link_to 'Sign out', sign_out_path
+
+          - else
+            %li
+              = link_to 'Sign up', sign_up_path
+            %li
+              = link_to 'Sign in', sign_in_path
