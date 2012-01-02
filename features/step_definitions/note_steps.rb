@@ -1,9 +1,10 @@
 When /^I (?:try to )?log a note for (yesterday|today|tomorrow) with the following:$/ do |day, content|
-  @note_content = content
-  visit new_note_path
-  fill_in "Date", with: Date.send(day).to_s
-  fill_in "note_content", with: @note_content
-  click_button "Save note"
+  date = Date.send(day).to_s
+  log_note(content, date: date)
+end
+
+When /^I log a note with the following:$/ do |content|
+  log_note(content)
 end
 
 When /^I try to log a note$/ do
@@ -16,7 +17,7 @@ When /^I (?:try to )?view the diary for (yesterday|today)/ do |day|
 end
 
 Then /^I should see the note$/ do
-  page.should have_content @note_content
+  within('.note') { page.should have_content @note_content }
 end
 
 Then /^I should be told that I cannot log a note in the future$/ do
@@ -25,4 +26,12 @@ end
 
 Then /^I should be told that I cannot log two notes for the same day$/ do
   page.should have_content "You have already made a note for this day"
+end
+
+def log_note(content, options={})
+  @note_content = content
+  visit new_note_path
+  fill_in "Date", with: options[:date] if options[:date]
+  fill_in "note_content", with: @note_content
+  click_button "Save note"
 end

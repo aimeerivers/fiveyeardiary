@@ -81,3 +81,15 @@ Feature: Log a note for the day
       """
     And I view the diary for today
     Then I should see the note
+
+  Scenario: The current day is determined according to your time zone
+
+    Somebody in Nuku'alofa can write a note for the day they are in, which may well be tomorrow
+
+    Given I am signed in as "Grawp"
+    And I change my time zone to "Nuku'alofa"
+    When I log a note with the following:
+      """
+      Greetings from the future!
+      """
+    Then I should see the note
