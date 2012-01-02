@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  validates :name, presence: true, on: :update
+
   has_many :notes
 
   def self.create_with_omniauth(auth)

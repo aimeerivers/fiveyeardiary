@@ -8,6 +8,10 @@ body {
   padding-top: 40px;
 }
 
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
 .container-fluid {
   min-width: 100px;
 

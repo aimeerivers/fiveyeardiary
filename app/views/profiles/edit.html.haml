@@ -1,0 +1,8 @@
+- title 'Edit Profile'
+
+= simple_form_for @profile, url: profile_path do |f|
+
+  = f.input :name
+
+  .actions
+    = f.button :submit, 'Update profile'

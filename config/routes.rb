@@ -23,6 +23,7 @@ Fiveyeardiary::Application.routes.draw do
   #   resources :products
 
   resources :notes
+  resource  :profile
 
   # Sample resource route with options:
   #   resources :products do
