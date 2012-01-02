@@ -12,6 +12,22 @@ body {
   display: block;
 }
 
+.page-header {
+  background-color: whiteSmoke;
+  padding: 20px 20px 10px 20px;
+  margin: -20px -20px 20px -20px;
+}
+
+form {
+  margin-bottom: 0;
+}
+
+.actions {
+  margin: auto -20px -20px -20px;
+  padding-left: 170px;
+  @include border_radius(0, 0, 6px, 6px);
+}
+
 .container-fluid {
   min-width: 100px;
 
