@@ -28,6 +28,16 @@ form {
   @include border_radius(0, 0, 6px, 6px);
 }
 
+table {
+  width: auto;
+
+  thead {
+    th {
+      background-color: whiteSmoke;
+    }
+  }
+}
+
 .container-fluid {
   min-width: 100px;
 

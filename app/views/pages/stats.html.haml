@@ -1,0 +1,20 @@
+- title 'Stats'
+
+%table.bordered-table
+  %thead
+    %tr
+      %th Query
+      %th Value
+
+  %tbody
+    %tr
+      %th Number of users
+      %td= User.count
+
+    %tr
+      %th Number of notes
+      %td= Note.count
+
+    %tr
+      %th Number of notes written today
+      %td= Note.written_today.count

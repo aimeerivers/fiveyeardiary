@@ -8,6 +8,7 @@ Fiveyeardiary::Application.routes.draw do
 
   match "/auth/:provider/callback" => "sessions#create"
   match "/auth/failure" => "sessions#failure"
+  match '/stats' => 'pages#stats'
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

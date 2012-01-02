@@ -7,6 +7,7 @@ class Note < ActiveRecord::Base
   validates :date, uniqueness: {scope: [:user_id], :message => "You have already made a note for this day"}
 
   scope :for_day, lambda {|month, day| where(month: month, day: day) }
+  scope :written_today, lambda { where(date: Date.today) }
   scope :by_date, order(:date)
 
   before_save :store_month_and_day
