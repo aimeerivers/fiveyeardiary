@@ -1,12 +1,8 @@
-= form_tag "/auth/identity/callback" do
+- title 'Sign in'
 
-  .field
-    = label_tag :auth_key, "Email"
-    = text_field_tag :auth_key
-
-  .field
-    = label_tag :password
-    = password_field_tag :password
+= simple_form_for :session, url: '/auth/identity/callback' do |f|
+  = f.input :auth_key, label: 'Email', input_html: {name: 'auth_key'}
+  = f.input :password, input_html: {name: 'password'}
 
   .actions
-    = submit_tag "Sign in"
+    = f.button :submit, 'Sign in', class: 'primary'
