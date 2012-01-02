@@ -24,6 +24,7 @@ Fiveyeardiary::Application.routes.draw do
 
   resources :notes, only: [:new, :create]
   resource  :profile, only: [:edit, :update]
+  resource  :settings, only: [:edit, :update]
 
   # Sample resource route with options:
   #   resources :products do

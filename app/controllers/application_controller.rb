@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+
+  before_filter :set_time_zone
+
   protect_from_forgery
 
   helper_method :current_user, :user_signed_in?
@@ -19,6 +22,10 @@ class ApplicationController < ActionController::Base
 
   def user_signed_in?
     current_user.present?
+  end
+
+  def set_time_zone
+    Time.zone = current_user.time_zone if user_signed_in?
   end
 
 end

@@ -1,0 +1,8 @@
+- title 'Edit settings'
+
+= simple_form_for @setting, url: settings_path, method: :put do |f|
+
+  = f.input :time_zone, priority: /US|London/, input_html: {class: 'xxlarge'}, hint: "We're seeing your current time as #{I18n.l Time.zone.now, format: :long}"
+
+  .actions
+    = f.button :submit, 'Update settings', class: 'primary'
