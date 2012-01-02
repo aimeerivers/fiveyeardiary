@@ -2,11 +2,11 @@
 
 = simple_form_for @note do |f|
 
+  = f.input :content, placeholder: "Write whatever is on your mind, as much or as little as you want ...", wrapper_html: {class: 'freetext'}
+
   - date = @note.date
   - date = Date.parse(params[:date]) if params[:date]
   = f.input :date, as: :string, input_html: {value: date || DateTime.current.strftime('%Y-%m-%d')}
-
-  = f.input :content, label: 'Write whatever is on your mind:', input_html: {class: 'xxlarge'}
 
   .actions
     = f.button :submit, 'Save note', class: 'primary'

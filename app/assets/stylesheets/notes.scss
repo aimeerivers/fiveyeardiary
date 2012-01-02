@@ -1,0 +1,16 @@
+.freetext {
+  label {
+    display: none;
+  }
+
+  .input {
+    margin-left: 0;
+  }
+
+  textarea {
+    width: 99%;
+    font-size: 1.2em;
+    resize: none;
+    height: 20em;
+  }
+}
