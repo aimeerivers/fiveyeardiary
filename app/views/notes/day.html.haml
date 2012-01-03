@@ -10,8 +10,4 @@
   %li
     = link_to 'Add a note on this day', new_note_path(date: @date.strftime('%Y-%m-%d'))
 
-- @notes.each do |note|
-  .note
-    %h3= note.date.year
-    = link_to 'Edit note', edit_note_path(note)
-    = simple_format note.content
+= render @notes

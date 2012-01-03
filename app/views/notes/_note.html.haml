@@ -1,0 +1,4 @@
+.note
+  %h3= note.date.year
+  = link_to 'Edit note', edit_note_path(note)
+  = simple_format note.content
