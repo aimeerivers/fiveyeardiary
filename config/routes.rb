@@ -23,7 +23,7 @@ Fiveyeardiary::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  resources :notes, only: [:new, :create]
+  resources :notes, only: [:new, :create, :edit, :update]
   resource  :profile, only: [:edit, :update]
   resource  :settings, only: [:edit, :update]
 

@@ -16,6 +16,12 @@ When /^I (?:try to )?view the diary for (yesterday|today)/ do |day|
   visit daily_diary_path(date.month, date.day)
 end
 
+When /^I edit the note and change the date to yesterday/ do
+  within('.note') { click_link 'Edit note' }
+  fill_in 'Date', with: Date.yesterday
+  click_button 'Update note'
+end
+
 Then /^I should see the note$/ do
   within('.note') { page.should have_content @note_content }
 end
@@ -26,6 +32,10 @@ end
 
 Then /^I should be told that I cannot log two notes for the same day$/ do
   page.should have_content "You have already made a note for this day"
+end
+
+Then /^the date should be set to yesterday$/ do
+  page.should have_css('h1', text: Date.yesterday.strftime('%B %e'))
 end
 
 def log_note(content, options={})

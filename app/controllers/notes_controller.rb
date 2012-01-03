@@ -22,4 +22,18 @@ class NotesController < ApplicationController
     @notes = current_user.notes.for_day(@date.month, @date.day).by_date
   end
 
+  def edit
+    @note = current_user.notes.find(params[:id])
+  end
+
+  def update
+    @note = current_user.notes.find(params[:id])
+    if @note.update_attributes(params[:note])
+      date = @note.date
+      redirect_to daily_diary_url(date.month, date.day), notice: 'Note updated successfully'
+    else
+      render :edit
+    end
+  end
+
 end

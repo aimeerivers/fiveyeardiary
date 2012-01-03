@@ -1,0 +1,9 @@
+- title 'Edit note'
+
+= simple_form_for @note do |f|
+
+  = f.input :content, placeholder: "Write whatever is on your mind, as much or as little as you want ...", wrapper_html: {class: 'freetext'}
+  = f.input :date, as: :string
+
+  .actions
+    = f.button :submit, 'Update note', class: 'primary'
