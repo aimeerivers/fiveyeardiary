@@ -1,3 +1,9 @@
+@mixin clearfix {
+  &:before, &:after { content: ""; display: table; }
+  &:after { clear: both; }
+  zoom: 1;
+}
+
 @mixin border_radius($tl, $tr, $br, $bl) {
   -moz-border-radius: $tl $tr $br $bl;
   -webkit-border-radius: $tl $tr $br $bl;

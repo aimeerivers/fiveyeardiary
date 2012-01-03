@@ -1,3 +1,5 @@
+@import '_mixins';
+
 .freetext {
   label {
     display: none;
@@ -12,5 +14,29 @@
     font-size: 1.2em;
     resize: none;
     height: 20em;
+  }
+}
+
+.note {
+  @include clearfix;
+  border-top: 1px solid #ccc;
+
+  ul.note-actions {
+    float: right;
+    padding: 5px;
+    border: 1px solid #eee;
+
+    li {
+      text-align: right;
+      margin: 3px;
+
+      a {
+        padding: 2px 2px 2px 20px;
+      }
+
+      &.edit-note a {
+        background: url(icons/edit.png) no-repeat left center;
+      }
+    }
   }
 }
