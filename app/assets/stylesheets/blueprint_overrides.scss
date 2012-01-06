@@ -8,6 +8,10 @@ body {
   padding-top: 40px;
 }
 
+h2 {
+  font-size: 20px;
+}
+
 .dropdown:hover > .dropdown-menu {
   display: block;
 }
@@ -52,4 +56,79 @@ table {
 
 footer p {
   text-align: center;
+}
+
+// tablet styles
+
+@media only screen and (max-width: 800px) {
+  .topbar {
+    div > ul a, .nav a {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+
+    > .content {
+      padding: 15px;
+    }
+  }
+
+  .page-header {
+    padding: 15px 15px 7px 15px;
+    margin: -15px -15px 15px -15px;
+
+    h1 {
+      margin-bottom: 6px;
+    }
+  }
+
+}
+
+// phone styles
+
+@media only screen and (max-width: 479px) {
+  .topbar {
+    .brand {
+      display: none;
+    }
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    > .content {
+      padding: 10px;
+    }
+  }
+
+  .page-header {
+    padding: 10px 10px 5px 10px;
+    margin: -10px -10px 10px -10px;
+
+    h1 {
+      margin-bottom: 4px;
+    }
+  }
+
 }
