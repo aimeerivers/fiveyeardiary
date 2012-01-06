@@ -94,6 +94,19 @@ footer p {
     }
   }
 
+  form {
+    .input {
+      span {
+        display: inline-block;
+        width: 95%;
+      }
+
+      .xxlarge {
+        width: auto;
+      }
+    }
+  }
+
 }
 
 // phone styles
@@ -128,6 +141,21 @@ footer p {
 
     h1 {
       margin-bottom: 4px;
+    }
+  }
+
+  form {
+    label {
+      float: none;
+    }
+
+    .input {
+      clear: left;
+      margin-left: 0;
+
+      input, .xxlarge {
+        width: 95%;
+      }
     }
   }
 
