@@ -122,6 +122,8 @@ GEM
       activesupport (= 3.1.3)
       bundler (~> 1.0)
       railties (= 3.1.3)
+    rails_autolink (1.0.4)
+      rails (>= 3.1.0)
     railties (3.1.3)
       actionpack (= 3.1.3)
       activesupport (= 3.1.3)
@@ -192,6 +194,7 @@ DEPENDENCIES
   omniauth-identity
   pg
   rails (= 3.1.3)
+  rails_autolink
   rspec-rails (= 2.7.0)
   sass-rails (~> 3.1.5)
   simple_form!
