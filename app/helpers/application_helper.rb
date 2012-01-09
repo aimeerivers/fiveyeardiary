@@ -10,4 +10,9 @@ module ApplicationHelper
     return type
   end
 
+  def friendly_date(date)
+    day = date.strftime('%e')
+    "#{date.strftime('%A')} #{ActiveSupport::Inflector.ordinalize(day)} #{date.strftime('%B %Y')}"
+  end
+
 end

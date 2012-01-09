@@ -1,4 +1,4 @@
-- title "#{@date.strftime('%B %e')}"
+- title "Notes made on #{ActiveSupport::Inflector.ordinalize(@date.strftime('%e'))} #{@date.strftime('%B')}"
 
 %ul
   %li.previous

@@ -1,5 +1,5 @@
 .note
-  %h2= note.date.year
+  %h2= friendly_date(note.date)
   %ul.note-actions.unstyled
     %li.edit-note= link_to 'Edit note', edit_note_path(note)
   = auto_link(simple_format(note.content), html: {target: '_blank'})
