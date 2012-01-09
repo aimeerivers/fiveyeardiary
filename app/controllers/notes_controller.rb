@@ -22,6 +22,11 @@ class NotesController < ApplicationController
     @notes = current_user.notes.for_day(@date.month, @date.day).by_date
   end
 
+  def week_day
+    @weekday = Date.parse(params[:weekday])
+    @notes = current_user.notes.for_week_day(@weekday.strftime('%u')).limit(5).by_date
+  end
+
   def edit
     @note = current_user.notes.find(params[:id])
   end

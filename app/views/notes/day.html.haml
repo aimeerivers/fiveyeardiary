@@ -1,13 +1,13 @@
 - title "#{@date.strftime('%B %e')}"
 
 %ul
-  %li
+  %li.previous
     - previous_day = @date - 1.day
     = link_to 'previous day', daily_diary_url(previous_day.month, previous_day.day)
-  %li
+  %li.next
     - next_day = @date + 1.day
     = link_to 'next day', daily_diary_url(next_day.month, next_day.day)
   %li
     = link_to 'Add a note on this day', new_note_path(date: @date.strftime('%Y-%m-%d'))
 
-= render @notes
+.notes= render @notes

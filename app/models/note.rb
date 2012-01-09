@@ -7,6 +7,7 @@ class Note < ActiveRecord::Base
   validates :date, uniqueness: {scope: [:user_id], :message => "You have already made a note for this day"}
 
   scope :for_day, lambda {|month, day| where(month: month, day: day) }
+  scope :for_week_day, lambda {|weekday| where(week_day: weekday) }
   scope :written_today, lambda { where(date: Date.today) }
   scope :by_date, order(:date)
 
@@ -17,6 +18,7 @@ class Note < ActiveRecord::Base
   def store_month_and_day
     self.month = self.date.month
     self.day = self.date.day
+    self.week_day = self.date.strftime('%u').to_i
   end
 
 end

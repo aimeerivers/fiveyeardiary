@@ -19,6 +19,7 @@ Fiveyeardiary::Application.routes.draw do
   match '/signout' => 'sessions#destroy', as: :sign_out
 
   match "/diary/:month/:day" => 'notes#day', as: :daily_diary
+  match "/diary/:weekday" => 'notes#week_day', as: :week_day_diary
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
