@@ -8,10 +8,19 @@
           = link_to 'Home', root_path
 
         - if user_signed_in?
-          %li
-            - date = DateTime.current
-            = link_to 'Today', daily_diary_path(date.month, date.day)
+
           %li
             = link_to 'Add a note', new_note_path
+
+          %li.dropdown
+            = link_to 'View', '#', class: 'dropdown-toggle'
+            %ul.dropdown-menu
+              - date = DateTime.current
+              %li= link_to 'Today', daily_diary_path(date.month, date.day)
+
+              %li.divider
+
+              - %w(Mondays Tuesdays Wednesdays Thursdays Fridays Saturdays Sundays).each do |week_day|
+                %li= link_to week_day, week_day_diary_path(week_day.downcase)
 
       = render partial: 'shared/authentication'
