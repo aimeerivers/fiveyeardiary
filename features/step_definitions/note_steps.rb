@@ -1,3 +1,5 @@
+include ApplicationHelper
+
 When /^I (?:try to )?log a note for (yesterday|today|tomorrow) with the following:$/ do |day, content|
   date = Date.send(day).to_s
   @note_content = content
@@ -53,7 +55,7 @@ Then /^I should be told that I cannot log two notes for the same day$/ do
 end
 
 Then /^the date should be set to yesterday$/ do
-  page.should have_css('h1', text: Date.yesterday.strftime('%B %e'))
+  page.should have_css('h1', content: friendly_date(Date.yesterday))
 end
 
 def log_note(content, options={})
