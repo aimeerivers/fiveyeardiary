@@ -1,6 +1,6 @@
 - title "Notes made on #{@weekday.strftime('%A').pluralize}"
 
-%ul
+%ul.navigation-actions
   %li.previous
     - previous_day = (@weekday - 1.day).strftime('%A').pluralize
     = link_to previous_day, week_day_diary_path(previous_day.downcase)
