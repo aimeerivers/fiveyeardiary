@@ -45,6 +45,19 @@ ul.navigation-actions {
 
 }
 
+.notes {
+  @include clearfix;
+
+  .half {
+    width: 48%;
+    float: left;
+
+    &:nth-child(1) {
+      margin-right: 2em;
+    }
+  }
+}
+
 .note {
   @include clearfix;
   border-top: 1px solid #ccc;
@@ -66,6 +79,19 @@ ul.navigation-actions {
       &.edit-note a {
         background: url(icons/edit.png) no-repeat left center;
       }
+    }
+  }
+}
+
+// tablet styles
+
+@media only screen and (max-width: 800px) {
+  .notes .half {
+    float: none;
+    width: auto;
+
+    &:nth-child(1) {
+      margin-right: auto;
     }
   }
 }

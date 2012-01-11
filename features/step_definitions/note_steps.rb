@@ -11,7 +11,7 @@ When /^I log a note with the following:$/ do |content|
   log_note(content)
 end
 
-Given /^I logged a note (\d+) days ago with the following:$/ do |number, content|
+Given /^I logged a note (\d+) days? ago with the following:$/ do |number, content|
   date = Date.today - number.to_i.days
   @previous_note_content = content
   log_note(content, date: date)
@@ -29,6 +29,11 @@ end
 When /^I go to the week day page for the current day of the week/ do
   date = Date.today
   visit week_day_diary_path(date.strftime('%A'))
+end
+
+When /^I go to the week page for the current week$/ do
+  date = Date.today
+  visit week_diary_path(date.year, date.cweek)
 end
 
 When /^I edit the note and change the date to yesterday/ do

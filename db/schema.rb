@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120109205344) do
+ActiveRecord::Schema.define(:version => 20120110184150) do
 
   create_table "identities", :force => true do |t|
     t.string   "name"
@@ -30,12 +30,16 @@ ActiveRecord::Schema.define(:version => 20120109205344) do
     t.integer  "month"
     t.integer  "day"
     t.integer  "week_day"
+    t.integer  "year"
+    t.integer  "week_number"
   end
 
   add_index "notes", ["day"], :name => "index_notes_on_day"
   add_index "notes", ["month"], :name => "index_notes_on_month"
   add_index "notes", ["user_id"], :name => "index_notes_on_user_id"
   add_index "notes", ["week_day"], :name => "index_notes_on_week_day"
+  add_index "notes", ["week_number"], :name => "index_notes_on_week_number"
+  add_index "notes", ["year"], :name => "index_notes_on_year"
 
   create_table "settings", :force => true do |t|
     t.integer  "user_id"

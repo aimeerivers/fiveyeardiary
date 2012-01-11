@@ -1,0 +1,7 @@
+- title "Notes made in week #{params[:week_number]} of #{params[:year]}"
+
+.notes
+  - @notes.partition{|n| n.date.strftime('%u').to_i < 5}.each do |collection|
+    .half
+      - collection.each do |note|
+        = render note

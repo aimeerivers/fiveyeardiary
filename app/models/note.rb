@@ -8,16 +8,19 @@ class Note < ActiveRecord::Base
 
   scope :for_day, lambda {|month, day| where(month: month, day: day) }
   scope :for_week_day, lambda {|weekday| where(week_day: weekday) }
+  scope :for_week, lambda {|year, week_number| where(year: year, week_number: week_number) }
   scope :written_today, lambda { where(date: Date.today) }
   scope :by_date, order(:date)
 
-  before_save :store_month_and_day
+  before_save :split_date_parts
 
   private
 
-  def store_month_and_day
+  def split_date_parts
+    self.year = self.date.year
     self.month = self.date.month
     self.day = self.date.day
+    self.week_number = self.date.cweek
     self.week_day = self.date.strftime('%u').to_i
   end
 
