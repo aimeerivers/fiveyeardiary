@@ -50,10 +50,13 @@ ul.navigation-actions {
 
   .half {
     width: 48%;
-    float: left;
 
     &:nth-child(1) {
-      margin-right: 2em;
+      float: left;
+    }
+
+    &:nth-child(2) {
+      float: right;
     }
   }
 }
@@ -87,10 +90,15 @@ ul.navigation-actions {
 
 @media only screen and (max-width: 800px) {
   .notes .half {
-    float: none;
     width: auto;
 
     &:nth-child(1) {
+      float: none;
+      margin-right: auto;
+    }
+
+    &:nth-child(2) {
+      float: none;
       margin-right: auto;
     }
   }
