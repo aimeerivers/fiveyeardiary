@@ -17,6 +17,7 @@
             %ul.dropdown-menu
               - date = DateTime.current
               %li= link_to 'Today', daily_diary_path(date.month, date.day)
+              %li= link_to 'This week', week_diary_path(date.year, date.cweek)
 
               %li.divider
 
