@@ -17,3 +17,19 @@ Feature: Notes per week
       """
     And I go to the week page for the current week
     Then I should see both notes
+
+  Scenario: A link goes back to the previous week
+
+    Given I am signed in as "McGonnagal"
+    And I logged a note 7 days ago with the following:
+      """
+      I love tartan
+      """
+    When I log a note for today with the following:
+      """
+      I like red wine
+      """
+    And I go to the week page for the current week
+    Then I should see the note
+    When I go to the previous week
+    Then I should see the previous note

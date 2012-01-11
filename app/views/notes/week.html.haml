@@ -1,4 +1,14 @@
+:ruby
+  previous_year, previous_week_number = previous_week(params[:year], params[:week_number])
+  next_year, next_week_number = next_week(params[:year], params[:week_number])
+
 - title "Notes made in week #{params[:week_number]} of #{params[:year]}"
+
+%ul.navigation-actions
+  %li.previous
+    = link_to 'previous week', week_diary_path(previous_year, previous_week_number)
+  %li.next
+    = link_to 'next week', week_diary_path(next_year, next_week_number)
 
 .notes
   - @notes.partition{|n| n.date.strftime('%u').to_i < 5}.each do |collection|

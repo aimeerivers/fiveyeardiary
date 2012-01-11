@@ -36,6 +36,10 @@ When /^I go to the week page for the current week$/ do
   visit week_diary_path(date.year, date.cweek)
 end
 
+When /^I go to the previous week$/ do
+  click_link 'previous week'
+end
+
 When /^I edit the note and change the date to yesterday/ do
   within('.note') { click_link 'Edit note' }
   fill_in 'Date', with: Date.yesterday
@@ -44,6 +48,10 @@ end
 
 Then /^I should see the note$/ do
   within('.note') { page.should have_content @note_content }
+end
+
+Then /^I should see the previous note$/ do
+  within('.note') { page.should have_content @previous_note_content }
 end
 
 Then /^I should see both notes$/ do
