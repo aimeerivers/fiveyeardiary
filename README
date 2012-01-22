@@ -24,3 +24,8 @@ gem install heroku
 heroku create --stack cedar
 git push heroku master
 heroku open
+
+Naturally, there are specs and features, which you can invoke like this:
+
+rspec
+cucumber
