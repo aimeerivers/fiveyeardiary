@@ -24,7 +24,7 @@
             %h1= yield(:title)
 
         - flash.each do |type, message|
-          %div(class="alert-message #{twitter_blueprint_alert_type(type)}")= message
+          %div(class="alert alert-#{twitter_blueprint_alert_type(type)}")= message
 
 
         = yield

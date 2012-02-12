@@ -1,4 +1,4 @@
-%ul.nav.secondary-nav
+%ul.nav.pull-right
   - if user_signed_in?
     %li.dropdown
       = link_to "Hello #{current_user.name}", '#', class: 'dropdown-toggle'

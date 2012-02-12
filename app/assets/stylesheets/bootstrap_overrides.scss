@@ -20,6 +20,7 @@ h2 {
   background-color: whiteSmoke;
   padding: 20px 20px 10px 20px;
   margin: -20px -20px 20px -20px;
+  border-bottom: 1px solid #ddd;
 }
 
 form {
@@ -62,7 +63,7 @@ footer {
 // tablet styles
 
 @media only screen and (max-width: 800px) {
-  .topbar {
+  .navbar {
     div > ul a, .nav a {
       padding-left: 6px;
       padding-right: 6px;
@@ -118,7 +119,7 @@ footer {
 // phone styles
 
 @media only screen and (max-width: 479px) {
-  .topbar {
+  .navbar {
     .brand {
       display: none;
     }
@@ -158,6 +159,7 @@ footer {
   form {
     label {
       float: none;
+      text-align: left;
     }
 
     .input {
