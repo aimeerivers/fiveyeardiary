@@ -24,7 +24,7 @@ class NotesController < ApplicationController
 
   def week_day
     @weekday = Date.parse(params[:weekday])
-    @notes = current_user.notes.for_week_day(@weekday.strftime('%u')).limit(5).by_date
+    @notes = current_user.notes.for_week_day(@weekday.strftime('%u')).since(5.weeks.ago).by_date
   end
 
   def week

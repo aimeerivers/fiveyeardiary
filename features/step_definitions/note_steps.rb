@@ -11,8 +11,8 @@ When /^I log a note with the following:$/ do |content|
   log_note(content)
 end
 
-Given /^I logged a note (\d+) days? ago with the following:$/ do |number, content|
-  date = Date.today - number.to_i.days
+Given /^I logged a note (\d+) (day|week)s? ago with the following:$/ do |number, period, content|
+  date = Date.today - number.to_i.send(period.pluralize.to_sym)
   @previous_note_content = content
   log_note(content, date: date)
 end
@@ -57,6 +57,11 @@ end
 Then /^I should see both notes$/ do
   within('.notes .note:nth-child(1)') { page.should have_content @previous_note_content }
   within('.notes .note:nth-child(2)') { page.should have_content @note_content }
+end
+
+Then /^I should only see the latest note$/ do
+  page.should have_no_content @previous_note_content
+  page.should have_content @note_content
 end
 
 Then /^I should be told that I cannot log a note in the future$/ do

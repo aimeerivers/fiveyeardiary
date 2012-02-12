@@ -10,6 +10,7 @@ class Note < ActiveRecord::Base
   scope :for_week_day, lambda {|weekday| where(week_day: weekday) }
   scope :for_week, lambda {|year, week_number| where(iso_8601_year: year, iso_8601_week_number: week_number) }
   scope :written_today, lambda { where(date: Date.today) }
+  scope :since, lambda {|since_date| where(["date >= ?", since_date]) }
   scope :by_date, order(:date)
 
   before_save :split_date_parts
