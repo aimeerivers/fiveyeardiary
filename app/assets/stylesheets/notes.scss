@@ -64,6 +64,12 @@ ul.navigation-actions {
 .note {
   @include clearfix;
   border-top: 1px solid #ccc;
+  margin-bottom: 1em;
+
+  p {
+    font-size: 1.2em;
+    line-height: 1.4em;
+  }
 
   ul.note-actions {
     float: right;
