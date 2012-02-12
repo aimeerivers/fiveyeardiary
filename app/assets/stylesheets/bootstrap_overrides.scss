@@ -27,7 +27,7 @@ form {
   margin-bottom: 0;
 }
 
-.actions {
+.form-actions {
   margin: auto -20px -20px -20px;
   padding-left: 170px;
   @include border_radius(0, 0, 6px, 6px);
@@ -100,7 +100,7 @@ footer {
     }
   }
 
-  .actions {
+  .form-actions {
     margin: auto -15px -15px -15px;
     padding-left: 165px;
   }
@@ -155,7 +155,7 @@ footer {
     }
   }
 
-  .actions {
+  .form-actions {
     margin: auto -10px -10px -10px;
     padding-left: 10px;
   }

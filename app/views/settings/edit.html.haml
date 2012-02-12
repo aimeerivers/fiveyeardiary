@@ -4,5 +4,5 @@
 
   = f.input :time_zone, priority: /US|London/, input_html: {class: 'xxlarge'}, hint: "Currently #{current_user.time_zone} where it is #{I18n.l Time.zone.now, format: :long}"
 
-  .actions
+  .form-actions
     = f.button :submit, 'Update settings', class: 'btn-primary'

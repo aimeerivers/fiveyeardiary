@@ -8,5 +8,5 @@
   - date = Date.parse(params[:date]) if params[:date]
   = f.input :date, as: :string, input_html: {value: date || DateTime.current.strftime('%Y-%m-%d')}
 
-  .actions
+  .form-actions
     = f.button :submit, 'Save note', class: 'btn-primary'
