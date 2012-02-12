@@ -55,6 +55,10 @@ table {
   }
 }
 
+[class^="icon-"] {
+  background-image: url(icons/glyphicons-halflings.png);
+}
+
 footer {
   text-align: center;
   padding: 20px;
