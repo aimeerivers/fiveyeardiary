@@ -18,7 +18,7 @@ class NotesController < ApplicationController
   end
 
   def day
-    @date = DateTime.current.change(month: params[:month].to_i, day: params[:day].to_i)
+    @date = DateTime.current.change(month: month_number_for(params[:month]), day: params[:day].to_i)
     @notes = current_user.notes.for_day(@date.month, @date.day).by_date
   end
 
@@ -48,6 +48,13 @@ class NotesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  private
+
+  def month_number_for(month)
+    (Date::MONTHNAMES.index(month.titleize) ||
+     Date::ABBR_MONTHNAMES.index(month.titleize) || month).to_i
   end
 
 end

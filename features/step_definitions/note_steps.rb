@@ -35,7 +35,7 @@ end
 
 When /^I (?:try to )?view the diary for (yesterday|today)/ do |day|
   date = Date.send(day)
-  visit daily_diary_path(date.month, date.day)
+  visit daily_diary_path(date.strftime('%B').downcase, date.day)
 end
 
 When /^I go to the week day page for the current day of the week/ do
