@@ -18,6 +18,7 @@
               - date = DateTime.current
               %li= link_to 'Today', daily_diary_path(date.month, date.day)
               %li= link_to 'This week', week_diary_path(date.strftime('%G'), date.strftime('%V').to_i)
+              %li= link_to "Day #{date.day} of each month", day_of_month_diary_path(date.day)
 
               %li.divider
 

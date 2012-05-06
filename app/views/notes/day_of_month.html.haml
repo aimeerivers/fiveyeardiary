@@ -1,0 +1,13 @@
+- title "Notes made on day #{@day} of each month"
+
+%ul.navigation-actions
+  %li.previous
+    - previous_day = @day - 1
+    - previous_day = 31 if previous_day < 1
+    = link_to "day #{previous_day}", day_of_month_diary_path(previous_day)
+  %li.next
+    - next_day = @day + 1
+    - next_day = 1 if next_day > 31
+    = link_to "day #{next_day}", day_of_month_diary_path(next_day)
+
+.notes= render @notes

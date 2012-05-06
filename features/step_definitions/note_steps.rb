@@ -17,6 +17,18 @@ Given /^I logged a note (\d+) (day|week)s? ago with the following:$/ do |number,
   log_note(content, date: date)
 end
 
+Given /^I logged a note on the (\d+)(?:st|nd|rd) day of last month with the following:$/ do |number, content|
+  date = (Date.today - 1.month).change(day: number.to_i)
+  @previous_note_content = content
+  log_note(content, date: date)
+end
+
+When /^I log a note for the (\d+)st day of this month with the following:$/ do |number, content|
+  date = Date.today.change(day: number.to_i)
+  @note_content = content
+  log_note(content, date: date)
+end
+
 When /^I try to log a note$/ do
   visit new_note_path
 end
@@ -34,6 +46,10 @@ end
 When /^I go to the week page for the current week$/ do
   date = Date.today
   visit week_diary_path(date.year, date.cweek)
+end
+
+When /^I go to the day of month page for day (\d+)$/ do |number|
+  visit day_of_month_diary_path(number)
 end
 
 When /^I go to the previous week$/ do

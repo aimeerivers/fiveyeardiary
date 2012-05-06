@@ -18,6 +18,7 @@ Fiveyeardiary::Application.routes.draw do
   match '/signin' => 'sessions#new', as: :sign_in
   match '/signout' => 'sessions#destroy', as: :sign_out
 
+  match "/diary/day/:day" => 'notes#day_of_month', as: :day_of_month_diary
   match "/diary/:year/week/:week_number" => 'notes#week', as: :week_diary
   match "/diary/:month/:day" => 'notes#day', as: :daily_diary
   match "/diary/:weekday" => 'notes#week_day', as: :week_day_diary

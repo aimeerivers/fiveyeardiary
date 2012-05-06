@@ -8,6 +8,7 @@ class Note < ActiveRecord::Base
 
   scope :for_day, lambda {|month, day| where(month: month, day: day) }
   scope :for_week_day, lambda {|weekday| where(week_day: weekday) }
+  scope :for_day_of_month, lambda {|day| where(day: day) }
   scope :for_week, lambda {|year, week_number| where(iso_8601_year: year, iso_8601_week_number: week_number) }
   scope :written_today, lambda { where(date: Date.today) }
   scope :since, lambda {|since_date| where(["date >= ?", since_date]) }
