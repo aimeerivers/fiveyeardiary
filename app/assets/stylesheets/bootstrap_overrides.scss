@@ -5,7 +5,11 @@ html, body {
 }
 
 body {
-  padding-top: 40px;
+  padding-top: 0;
+}
+
+.navbar-inner {
+  @include border_radius(0, 0, 0, 0);
 }
 
 h2 {
