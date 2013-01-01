@@ -11,7 +11,7 @@ class NotesController < ApplicationController
     @note.user = current_user
     if @note.save
       date = @note.date
-      redirect_to daily_diary_url(date.strftime('%B').downcase, date.day), notice: 'Note saved successfully'
+      redirect_to daily_diary_url(date.strftime('%B').downcase, date.day, anchor: @note.dom_id), notice: 'Note saved successfully'
     else
       render :new
     end
@@ -44,7 +44,7 @@ class NotesController < ApplicationController
     @note = current_user.notes.find(params[:id])
     if @note.update_attributes(params[:note])
       date = @note.date
-      redirect_to daily_diary_url(date.strftime('%B').downcase, date.day), notice: 'Note updated successfully'
+      redirect_to daily_diary_url(date.strftime('%B').downcase, date.day, anchor: @note.dom_id), notice: 'Note updated successfully'
     else
       render :edit
     end

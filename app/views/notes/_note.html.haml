@@ -1,4 +1,4 @@
-.note
+.note(id="#{note.dom_id}")
   %h2= friendly_date(note.date)
   %ul.note-actions.unstyled
     %li.edit-note= link_to 'Edit note', edit_note_path(note)

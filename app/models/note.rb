@@ -16,6 +16,10 @@ class Note < ActiveRecord::Base
 
   before_save :split_date_parts
 
+  def dom_id
+    date.strftime('%Y-%m-%d')
+  end
+
   private
 
   def split_date_parts
